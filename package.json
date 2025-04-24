@@ -1,7 +1,7 @@
 {
   "name": "vire-types",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

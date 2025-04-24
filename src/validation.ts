@@ -419,7 +419,7 @@ export const fileSchema = z.object({
   type: z.enum(["png", "PNG", "jpg", "JPG"]),
 });
 
-export const EntityValidation = z.object({
+export const fullGameSchema = z.object({
   game: gameSchema,
   damages: z.array(damageSchema),
   files: z.array(fileSchema),
@@ -472,36 +472,83 @@ export const EntityValidation = z.object({
   nodes: z.array(nodeSchema),
 });
 
-export type Pop = z.infer<typeof popSchema>;
-export type NationPop = z.infer<typeof nationPopSchema>;
-export type PopJob = z.infer<typeof popJobSchema>;
-export type PopUpkeep = z.infer<typeof popUpkeepSchema>;
-export type TerritoryPop = z.infer<typeof territoryPopSchema>;
-export type Modifier = z.infer<typeof modifierSchema>;
-export type Effect = z.infer<typeof effectSchema>;
-export type Job = z.infer<typeof jobSchema>;
-export type ObjectModifier = z.infer<typeof objectModifierSchema>;
-export type StartingResource = z.infer<typeof startingResourceSchema>;
-export type Resource = z.infer<typeof resourceSchema>;
-export type BuildingCost = z.infer<typeof buildingCostSchema>;
-export type BuildingUpkeep = z.infer<typeof buildingUpkeepSchema>;
-export type TerritoryBuilding = z.infer<typeof territoryBuildingSchema>;
-export type TerritoryUnit = z.infer<typeof territoryUnitSchema>;
-export type UnitDamage = z.infer<typeof unitDamageSchema>;
-export type UnitDefense = z.infer<typeof unitDefenseSchema>;
-export type UnitHireCost = z.infer<typeof unitHireCostSchema>;
-export type UnitTrainCost = z.infer<typeof unitTrainCostSchema>;
-export type UnitUpkeep = z.infer<typeof unitUpkeepSchema>;
-export type BuildableBuilding = z.infer<typeof buildableBuildingSchema>;
-export type Profile = z.infer<typeof profileSchema>;
-export type Node = z.infer<typeof nodeSchema>;
-export type TechnologyTree = z.infer<typeof technologyTreeSchema>;
-export type Technology = z.infer<typeof technologySchema>;
-export type File = z.infer<typeof fileSchema>;
-export type Event = z.infer<typeof eventSchema>;
-export type EventChain = z.infer<typeof eventChainSchema>;
-export type Territory = z.infer<typeof territorySchema>;
-export type Point = z.infer<typeof pointSchema>;
-export type Biome = z.infer<typeof biomeSchema>;
-export type BiomeResource = z.infer<typeof biomeResourceSchema>;
-export type Nation = z.infer<typeof nationSchema>;
+export const deleteGameEntitiesSchema = z.object({
+  damages: z.array(z.string()),
+  files: z.array(z.string()),
+  resources: z.array(z.string()),
+  buildings: z.array(z.string()),
+  nations: z.array(z.string()),
+  units: z.array(z.string()),
+  unitDamages: z.array(z.string()),
+  unitDefenses: z.array(z.string()),
+  unitHireCosts: z.array(z.string()),
+  unitTrainCosts: z.array(z.string()),
+  unitUpkeeps: z.array(z.string()),
+  pops: z.array(z.string()),
+  popUpkeeps: z.array(z.string()),
+  popJobs: z.array(z.string()),
+  modifiers: z.array(z.string()),
+  jobs: z.array(z.string()),
+  points: z.array(z.string()),
+  biomes: z.array(z.string()),
+  territories: z.array(z.string()),
+  territoryPops: z.array(z.string()),
+  territoryUnits: z.array(z.string()),
+  territoryBuildings: z.array(z.string()),
+  events: z.array(z.string()),
+  eventChains: z.array(z.string()),
+  technologies: z.array(z.string()),
+  technologyTrees: z.array(z.string()),
+  startingResources: z.array(z.string()),
+  objectModifiers: z.array(z.string()),
+  effects: z.array(z.string()),
+  buildableBuildings: z.array(z.string()),
+  profiles: z.array(z.string()),
+  nodes: z.array(z.string()),
+});
+export const fullGameSaveSchema = fullGameSchema.extend({
+  deleted: deleteGameEntitiesSchema,
+});
+
+export type EPop = z.infer<typeof popSchema>;
+export type ENationPop = z.infer<typeof nationPopSchema>;
+export type EPopJob = z.infer<typeof popJobSchema>;
+export type EPopUpkeep = z.infer<typeof popUpkeepSchema>;
+export type ETerritoryPop = z.infer<typeof territoryPopSchema>;
+export type EModifier = z.infer<typeof modifierSchema>;
+export type EEffect = z.infer<typeof effectSchema>;
+export type EJob = z.infer<typeof jobSchema>;
+export type EObjectModifier = z.infer<typeof objectModifierSchema>;
+export type EStartingResource = z.infer<typeof startingResourceSchema>;
+export type EResource = z.infer<typeof resourceSchema>;
+export type EBuildingCost = z.infer<typeof buildingCostSchema>;
+export type EBuildingUpkeep = z.infer<typeof buildingUpkeepSchema>;
+export type ETerritoryBuilding = z.infer<typeof territoryBuildingSchema>;
+export type ETerritoryUnit = z.infer<typeof territoryUnitSchema>;
+export type EUnitDamage = z.infer<typeof unitDamageSchema>;
+export type EUnitDefense = z.infer<typeof unitDefenseSchema>;
+export type EUnitHireCost = z.infer<typeof unitHireCostSchema>;
+export type EUnitTrainCost = z.infer<typeof unitTrainCostSchema>;
+export type EUnitUpkeep = z.infer<typeof unitUpkeepSchema>;
+export type EBuildableBuilding = z.infer<typeof buildableBuildingSchema>;
+export type EProfile = z.infer<typeof profileSchema>;
+export type ENode = z.infer<typeof nodeSchema>;
+export type ETechnologyTree = z.infer<typeof technologyTreeSchema>;
+export type ETechnology = z.infer<typeof technologySchema>;
+export type EFile = z.infer<typeof fileSchema>;
+export type EEvent = z.infer<typeof eventSchema>;
+export type EEventChain = z.infer<typeof eventChainSchema>;
+export type ETerritory = z.infer<typeof territorySchema>;
+export type EPoint = z.infer<typeof pointSchema>;
+export type EBiome = z.infer<typeof biomeSchema>;
+export type EBiomeResource = z.infer<typeof biomeResourceSchema>;
+export type ENation = z.infer<typeof nationSchema>;
+export type EGamer = z.infer<typeof gamerSchema>;
+export type EGame = z.infer<typeof gameSchema>;
+export type EDamage = z.infer<typeof damageSchema>;
+export type EBuilding = z.infer<typeof buildingSchema>;
+export type EUnit = z.infer<typeof unitSchema>;
+
+export type EFullGame = z.infer<typeof fullGameSchema>;
+export type EFullGameSave = z.infer<typeof fullGameSaveSchema>;
+export type EDeleteGameEntities = z.infer<typeof deleteGameEntitiesSchema>;
