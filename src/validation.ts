@@ -1,11 +1,11 @@
 import { z } from "zod";
-
-// Enums
-const ModifierLifetimeTypes = ["Temporary", "Permanent"] as const;
-const TargetTypes = ["Unit", "Building", "Nation", "Territory"] as const;
-const ModifierScopes = ["Global", "Nation", "Territory"] as const;
-const EffectBehaviors = ["Increase", "Decrease", "Set"] as const;
-const EffectPolarities = ["Positive", "Negative"] as const;
+import {
+  EffectBehaviors,
+  EffectPolarities,
+  ModifierLifetimeTypes,
+  ModifierScopes,
+  TargetTypes,
+} from "./enum";
 
 export const gameSchema = z.object({
   id: z.string(),
