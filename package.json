@@ -1,8 +1,8 @@
 {
   "name": "vire-types",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "commonjs",
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
@@ -15,7 +15,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.js"
     }
   },
   "dependencies": {
