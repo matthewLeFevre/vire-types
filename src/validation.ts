@@ -23,7 +23,7 @@ export const gameSchema = z.object({
   isHexGrid: z.boolean(),
   status: z.string(),
   folderName: z.string(),
-  gamerId: z.string(),
+  userId: z.string()
 });
 
 // === damage ===
@@ -98,19 +98,9 @@ export const nodeSchema = z.object({
   config: z.string().nullable(),
 });
 
-// === gamer ===
-export const gamerSchema = z.object({
-  id: z.string(),
-  username: z.string(),
-  steamId: z.string(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
-});
-
 // === user ===
 export const userSchema = z.object({
   id: z.string(),
-  gamerId: z.string(),
   name: z.string(),
   email: z.string(),
   emailVerified: z.boolean(),
@@ -543,7 +533,6 @@ export type EPoint = z.infer<typeof pointSchema>;
 export type EBiome = z.infer<typeof biomeSchema>;
 export type EBiomeResource = z.infer<typeof biomeResourceSchema>;
 export type ENation = z.infer<typeof nationSchema>;
-export type EGamer = z.infer<typeof gamerSchema>;
 export type EGame = z.infer<typeof gameSchema>;
 export type EDamage = z.infer<typeof damageSchema>;
 export type EBuilding = z.infer<typeof buildingSchema>;
