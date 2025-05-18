@@ -1,4 +1,4 @@
-import { EFullGameSave, EGamer } from "./validation";
+import { EFullGameSave } from "./validation";
 
 export type AssignJobApiReq = {
   popInstanceId: string;
@@ -146,9 +146,6 @@ export type UpdateFileNameApiReq = {};
 export type UpdateFileParentApiReq = {};
 export type TriggerCreateFilesApiReq = {
   parentFolderId: string;
-};
-export type GetGamerApiReq = {
-  gamer: EGamer;
 };
 
 export type TEditorApi = {
